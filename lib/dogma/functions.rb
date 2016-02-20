@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Dogma
   module Functions
     extend FFI::Library
@@ -42,8 +43,5 @@ module Dogma
     # assumed to be "launched" (ie not in the drone bay doing nothing).
     # int dogma_add_drone(dogma_context_t*, dogma_typeid_t, unsigned int);
     attach_function :dogma_add_drone, [:pointer, :uint32, :uint], :int
-
-
-
   end
 end

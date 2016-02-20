@@ -1,11 +1,11 @@
+# frozen_string_literal: true
 require 'ffi'
 
-require "dogma/version"
+require 'dogma/version'
 require 'dogma/functions'
 require 'dogma/context'
 
 module Dogma
-
   STATE_ONLINE = 17
   STATE_ACTIVE = 31
   STATE_OVERLOADED = 63
@@ -28,7 +28,6 @@ module Dogma
   end
 
   def self.assert_ok(&block)
-    fail "Dogma call returned non-zero" unless block.call == 0
+    fail 'Dogma call returned non-zero' unless block.call == 0
   end
-
 end

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Dogma
   class Context
     include Functions
@@ -53,15 +54,14 @@ module Dogma
 
     private
 
-    def with_pointer(type, &block)
+    def with_pointer(type, &_block)
       p = FFI::MemoryPointer.new(type)
-      Dogma.assert_ok { block.call(p) }
+      Dogma.assert_ok { yield(p) }
       p
     end
 
     def read_double(&block)
       with_pointer(:double, &block).read_double
     end
-
   end
 end
