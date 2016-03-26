@@ -2,10 +2,7 @@
 require 'spec_helper'
 
 RSpec.describe 'Dogma' do
-  before { Dogma::Functions.dogma_init }
-  after { ctx.destroy! }
-
-  let (:ctx) { Dogma.context }
+  include_context 'dogma'
 
   context 'Rifter' do
     before do
