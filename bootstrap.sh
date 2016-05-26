@@ -26,7 +26,7 @@ install Git git
 update-locale LANG=en_US.UTF-8 LANGUAGE=en_US.UTF-8 LC_ALL=en_US.UTF-8
 
 # Download and compile libdogma
-curl -Ls https://github.com/osmium-org/libdogma/releases/download/v1.2.0-fro10/libdogma-1.2.0-fro10.tar.xz | tar xJ
+curl -Ls https://github.com/osmium-org/libdogma/releases/download/v1.2.0-cit10/libdogma-1.2.0-cit10.tar.xz | tar xJ
 cd libdogma-1.2.0
 CC=gcc ./configure --enable-debug
 make
