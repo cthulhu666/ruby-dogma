@@ -43,5 +43,21 @@ RSpec.describe 'Dogma' do
         it { is_expected.to eq [8868.75, 9675.00] }
       end
     end
+
+    describe '#strip!' do
+      def shield_capacity  # don't memoize
+        ctx.ship_attribute 263
+      end
+      it 'works' do
+        ctx.add_module 3831
+        expect(shield_capacity).to eq(1937.5)
+        ctx.strip!
+        expect(shield_capacity).to eq(562.5)
+        ctx.add_module 3831
+        expect(shield_capacity).to eq(1937.5)
+        ctx.strip!
+        expect(shield_capacity).to eq(562.5)
+      end
+    end
   end
 end

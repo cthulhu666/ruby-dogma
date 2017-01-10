@@ -7,10 +7,18 @@ module Dogma
 
     def initialize(dogma_context)
       @dogma_context = dogma_context
+      @mods = []
     end
 
     def destroy!
       dogma_free_context @dogma_context
+    end
+
+    def strip!
+      @mods.each do |m|
+        Dogma.assert_ok { dogma_remove_module(dogma_context, m) }
+      end
+      @mods.clear
     end
 
     def set_ship(type_id)
@@ -25,7 +33,9 @@ module Dogma
           dogma_add_module_s(dogma_context, type_id, p, state)
         end
       end
-      idx.read_long
+      l = idx.read_long
+      @mods << l
+      return l
     end
 
     def ship_attribute(attr_id)
