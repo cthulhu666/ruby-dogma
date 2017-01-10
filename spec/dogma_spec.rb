@@ -45,7 +45,7 @@ RSpec.describe 'Dogma' do
     end
 
     describe '#strip!' do
-      def shield_capacity  # don't memoize
+      def shield_capacity # don't memoize
         ctx.ship_attribute 263
       end
       it 'works' do

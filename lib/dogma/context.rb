@@ -35,7 +35,7 @@ module Dogma
       end
       l = idx.read_long
       @mods << l
-      return l
+      l
     end
 
     def ship_attribute(attr_id)
